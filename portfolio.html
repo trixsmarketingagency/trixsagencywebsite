@@ -304,7 +304,8 @@
     }
 
     .design-item img,
-    .design-item video {
+    .design-item video,
+    .design-item iframe {
       width: 100%;
       height: auto;
       max-height: none;
@@ -343,6 +344,16 @@
     .design-item video {
       background: #000;
     }
+
+    .design-item iframe {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      min-height: 420px;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+
 
     .placeholder {
       display: grid;
@@ -596,10 +607,8 @@
       PROJECTS/BRANDING/clinic-brand-08.png
 
       Videos:
-      PROJECTS/VIDEOS/video-01.mp4
-      PROJECTS/VIDEOS/video-02.mp4
-      ...
-      PROJECTS/VIDEOS/video-12.mp4
+      YouTube Shorts embed links:
+      https://www.youtube.com/embed/VIDEO_ID
     */
 
     const data = {
@@ -683,18 +692,12 @@
           {
             client: "",
             videos: [
-              "PROJECTS/VIDEOS/video-01.mp4",
-              "PROJECTS/VIDEOS/video-02.mp4",
-              "PROJECTS/VIDEOS/video-03.mp4",
-              "PROJECTS/VIDEOS/video-04.mp4",
-              "PROJECTS/VIDEOS/video-05.mp4",
-              "PROJECTS/VIDEOS/video-06.mp4",
-              "PROJECTS/VIDEOS/video-07.mp4",
-              "PROJECTS/VIDEOS/video-08.mp4",
-              "PROJECTS/VIDEOS/video-09.mp4",
-              "PROJECTS/VIDEOS/video-10.mp4",
-              "PROJECTS/VIDEOS/video-11.mp4",
-              "PROJECTS/VIDEOS/video-12.mp4"
+              "https://www.youtube.com/embed/b8D4af1evwY",
+              "https://www.youtube.com/embed/S40Z1IqdmLU",
+              "https://www.youtube.com/embed/absaQrhrDMQ",
+              "https://www.youtube.com/embed/aQdMCBlUams",
+              "https://www.youtube.com/embed/Va1pYzd8EiQ",
+              "https://www.youtube.com/embed/H6B4v9fPerg"
             ]
           }
         ]
@@ -788,7 +791,7 @@
                 <div class="design-item">
                   ${
                     isVideo
-                      ? `<video src="${src}" controls muted playsinline preload="metadata"></video>`
+                      ? `<iframe src="${src}" title="Trixs video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`
                       : `<img src="${src}" alt="${project.client} Design" loading="lazy" onclick="openLightbox('${src}', '${project.client} Design')">`
                   }
                 </div>
