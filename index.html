@@ -1744,17 +1744,25 @@
     });
   });
 
-  // ── FORM SUBMIT ──
+  // ── FORM SUBMIT: SEND DATA TO WHATSAPP ──
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.btn-submit');
-    btn.textContent = '✓ Sent! We\'ll be in touch shortly.';
-    btn.style.background = 'linear-gradient(135deg, #00D1D1, #00a8a8)';
-    setTimeout(() => {
-      btn.textContent = 'Contact Us';
-      btn.style.background = '';
-      e.target.reset();
-    }, 4000);
+
+    const form = e.target;
+    const inputs = form.querySelectorAll('input');
+    const select = form.querySelector('select');
+    const textarea = form.querySelector('textarea');
+
+    const fullName = inputs[0]?.value.trim() || 'Not provided';
+    const phone = inputs[1]?.value.trim() || 'Not provided';
+    const specialty = select?.value || 'Not selected';
+    const clinicName = inputs[2]?.value.trim() || 'Not provided';
+    const messageText = textarea?.value.trim() || 'No message';
+
+    const whatsappMessage = `Hello Trixs Marketing Agency,\n\nI want to contact you about your services.\n\nFull Name: ${fullName}\nPhone Number: ${phone}\nMedical Specialty: ${specialty}\nClinic / Center Name: ${clinicName}\nMessage: ${messageText}`;
+
+    const whatsappUrl = `https://wa.me/201233305201?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, '_blank');
   }
 
   // ── HERO TITLE ANIMATION ──
