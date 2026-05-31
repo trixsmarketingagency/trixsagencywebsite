@@ -1246,54 +1246,73 @@
   /* ── HERO PORTFOLIO BACKGROUND MOTION ── */
   .hero-portfolio-bg {
     position: absolute;
-    inset: -14%;
+    inset: -20%;
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.34;
-    filter: blur(3.2px) saturate(1.12) contrast(1.08);
-    transform: rotate(-7deg) scale(1.08);
-    perspective: 1100px;
+    opacity: 0.44;
+    filter: blur(2.4px) saturate(1.22) contrast(1.14);
+    transform: rotate(-7deg) scale(1.13);
+    perspective: 1300px;
     transform-style: preserve-3d;
   }
 
   .portfolio-strip {
     position: absolute;
-    left: -10%;
+    left: -16%;
     display: flex;
-    gap: 24px;
+    gap: 20px;
     width: max-content;
     will-change: transform;
     transform-style: preserve-3d;
   }
 
   .portfolio-strip.strip-1 {
-    top: 11%;
-    animation: portfolioMoveLeft3D 50s linear infinite;
+    top: -2%;
+    animation: portfolioMoveLeft3D 28s linear infinite;
   }
 
   .portfolio-strip.strip-2 {
-    top: 48%;
-    animation: portfolioMoveRight3D 56s linear infinite;
+    top: 22%;
+    animation: portfolioMoveRight3D 32s linear infinite;
+  }
+
+  .portfolio-strip.strip-3 {
+    top: 46%;
+    animation: portfolioMoveLeft3DDeep 30s linear infinite;
+  }
+
+  .portfolio-strip.strip-4 {
+    top: 70%;
+    animation: portfolioMoveRight3DDeep 34s linear infinite;
+  }
+
+  .portfolio-strip.strip-5 {
+    top: 94%;
+    animation: portfolioMoveLeft3D 36s linear infinite;
   }
 
   .portfolio-strip img {
-    width: 195px;
-    height: 255px;
+    width: 178px;
+    height: 232px;
     object-fit: cover;
-    border-radius: 20px;
-    opacity: 0.72;
-    border: 1px solid rgba(255,255,255,0.18);
-    box-shadow: 0 28px 78px rgba(0,0,0,0.62), 0 0 24px rgba(0,209,209,0.10);
-    transform: perspective(900px) rotateY(-13deg) rotateX(5deg) translateZ(0);
+    border-radius: 18px;
+    opacity: 0.78;
+    border: 1px solid rgba(255,255,255,0.20);
+    box-shadow: 0 28px 82px rgba(0,0,0,0.66), 0 0 26px rgba(0,209,209,0.12);
+    transform: perspective(950px) rotateY(-14deg) rotateX(6deg) translateZ(0);
   }
 
   .portfolio-strip img:nth-child(even) {
-    transform: perspective(900px) rotateY(12deg) rotateX(-4deg) translateZ(28px);
+    transform: perspective(950px) rotateY(13deg) rotateX(-5deg) translateZ(34px);
   }
 
   .portfolio-strip img:nth-child(3n) {
-    transform: perspective(900px) rotateY(-18deg) rotateX(7deg) translateZ(48px);
+    transform: perspective(950px) rotateY(-20deg) rotateX(8deg) translateZ(60px);
+  }
+
+  .portfolio-strip img:nth-child(4n) {
+    transform: perspective(950px) rotateY(18deg) rotateX(5deg) translateZ(44px);
   }
 
   #hero::after {
@@ -1303,8 +1322,8 @@
     z-index: 1;
     pointer-events: none;
     background:
-      radial-gradient(circle at 50% 42%, rgba(11,11,13,0.10), rgba(11,11,13,0.72) 58%, rgba(11,11,13,0.93) 100%),
-      linear-gradient(180deg, rgba(11,11,13,0.58) 0%, rgba(11,11,13,0.34) 42%, rgba(11,11,13,0.82) 100%);
+      radial-gradient(circle at 50% 42%, rgba(11,11,13,0.06), rgba(11,11,13,0.62) 58%, rgba(11,11,13,0.91) 100%),
+      linear-gradient(180deg, rgba(11,11,13,0.52) 0%, rgba(11,11,13,0.28) 42%, rgba(11,11,13,0.78) 100%);
   }
 
   #hero .hero-content,
@@ -1318,26 +1337,38 @@
   }
 
   @keyframes portfolioMoveLeft3D {
-    0% { transform: translateX(0) rotateX(8deg) rotateY(-9deg) translateZ(0); }
-    50% { transform: translateX(-25%) rotateX(13deg) rotateY(7deg) translateZ(70px); }
-    100% { transform: translateX(-50%) rotateX(8deg) rotateY(-9deg) translateZ(0); }
+    0% { transform: translateX(0) rotateX(8deg) rotateY(-10deg) translateZ(0); }
+    50% { transform: translateX(-25%) rotateX(15deg) rotateY(8deg) translateZ(95px); }
+    100% { transform: translateX(-50%) rotateX(8deg) rotateY(-10deg) translateZ(0); }
   }
 
   @keyframes portfolioMoveRight3D {
-    0% { transform: translateX(-50%) rotateX(-6deg) rotateY(10deg) translateZ(35px); }
-    50% { transform: translateX(-25%) rotateX(-12deg) rotateY(-8deg) translateZ(95px); }
-    100% { transform: translateX(0) rotateX(-6deg) rotateY(10deg) translateZ(35px); }
+    0% { transform: translateX(-50%) rotateX(-7deg) rotateY(11deg) translateZ(40px); }
+    50% { transform: translateX(-25%) rotateX(-14deg) rotateY(-9deg) translateZ(115px); }
+    100% { transform: translateX(0) rotateX(-7deg) rotateY(11deg) translateZ(40px); }
+  }
+
+  @keyframes portfolioMoveLeft3DDeep {
+    0% { transform: translateX(-8%) rotateX(11deg) rotateY(-15deg) translateZ(65px); }
+    50% { transform: translateX(-34%) rotateX(2deg) rotateY(12deg) translateZ(145px); }
+    100% { transform: translateX(-58%) rotateX(11deg) rotateY(-15deg) translateZ(65px); }
+  }
+
+  @keyframes portfolioMoveRight3DDeep {
+    0% { transform: translateX(-56%) rotateX(-12deg) rotateY(16deg) translateZ(90px); }
+    50% { transform: translateX(-28%) rotateX(-3deg) rotateY(-12deg) translateZ(160px); }
+    100% { transform: translateX(0) rotateX(-12deg) rotateY(16deg) translateZ(90px); }
   }
 
   @media (max-width: 900px) {
     .hero-portfolio-bg {
-      opacity: 0.18;
-      filter: blur(5px) saturate(0.92);
+      opacity: 0.24;
+      filter: blur(4px) saturate(1.02);
     }
 
     .portfolio-strip img {
-      width: 145px;
-      height: 190px;
+      width: 138px;
+      height: 180px;
     }
   }
 
@@ -1403,6 +1434,12 @@
         <img src="PROJECTS/SOCIAL/client-2/1.png" alt="">
         <img src="PROJECTS/SOCIAL/client-3/1.png" alt="">
         <img src="PROJECTS/BRANDING/clinic-brand-01.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-01.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-01.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/1.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/1.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/1.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-01.png" alt="">
       </div>
       <div class="portfolio-strip strip-2">
         <img src="PROJECTS/SOCIAL/mahmoud-nasser-02.jpg" alt="">
@@ -1417,6 +1454,72 @@
         <img src="PROJECTS/SOCIAL/client-2/2.png" alt="">
         <img src="PROJECTS/SOCIAL/client-3/2.png" alt="">
         <img src="PROJECTS/BRANDING/clinic-brand-02.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-02.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-02.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/2.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/2.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/2.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-02.png" alt="">
+      </div>
+      <div class="portfolio-strip strip-3">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-03.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-03.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/3.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-03.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-03.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-03.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/3.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-03.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-03.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-03.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/3.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-03.png" alt="">
+      </div>
+      <div class="portfolio-strip strip-4">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-04.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-04.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/4.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/4.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/4.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-04.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-04.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-04.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/4.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/4.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/4.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-04.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-04.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-04.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/4.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/4.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/4.png" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-04.png" alt="">
+      </div>
+      <div class="portfolio-strip strip-5">
+        <img src="PROJECTS/SOCIAL/client-1/1.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/2.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-02.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-03.jpg" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-05.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/1.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/2.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-02.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-03.jpg" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-05.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-1/1.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-2/2.png" alt="">
+        <img src="PROJECTS/SOCIAL/client-3/3.png" alt="">
+        <img src="PROJECTS/SOCIAL/mahmoud-nasser-02.jpg" alt="">
+        <img src="PROJECTS/SOCIAL/elmasa-03.jpg" alt="">
+        <img src="PROJECTS/BRANDING/clinic-brand-05.png" alt="">
       </div>
     </div>
 
