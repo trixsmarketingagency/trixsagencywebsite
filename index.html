@@ -1250,8 +1250,8 @@
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.52;
-    filter: blur(1.9px) saturate(1.18) contrast(1.1);
+    opacity: 0.60;
+    filter: blur(1.7px) saturate(1.2) contrast(1.12);
     transform: rotate(-4deg) scale(1.08);
     perspective: 1400px;
     transform-style: preserve-3d;
@@ -1331,19 +1331,38 @@
 
   @media (max-width: 900px) {
     .hero-portfolio-bg {
-      opacity: 0.30;
-      filter: blur(3px) saturate(1.02);
+      inset: -10% -45%;
+      opacity: 0.42;
+      filter: blur(2.4px) saturate(1.08) contrast(1.05);
+      transform: rotate(-4deg) scale(1.12);
     }
 
     .portfolio-strip img {
-      width: 138px;
-      height: 180px;
+      width: 126px;
+      height: 164px;
+      border-radius: 15px;
     }
+
+    .portfolio-strip.strip-1 { top: -4%; animation-duration: 18s; }
+    .portfolio-strip.strip-2 { top: 16%; animation-duration: 20s; }
+    .portfolio-strip.strip-3 { top: 36%; animation-duration: 17s; }
+    .portfolio-strip.strip-4 { top: 56%; animation-duration: 21s; }
+    .portfolio-strip.strip-5 { top: 76%; animation-duration: 19s; }
   }
 
   @media (max-width: 600px) {
     .hero-portfolio-bg {
-      display: none;
+      display: block;
+      inset: -8% -75%;
+      opacity: 0.34;
+      filter: blur(2.8px) saturate(1.06) contrast(1.04);
+      transform: rotate(-5deg) scale(1.08);
+    }
+
+    .portfolio-strip img {
+      width: 92px;
+      height: 122px;
+      border-radius: 12px;
     }
   }
 
