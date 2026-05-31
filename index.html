@@ -21,14 +21,7 @@
     --glow-blue: 0 0 40px rgba(45,127,249,0.18);
   }
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
 
@@ -67,9 +60,30 @@
   .cursor.hover { width: 18px; height: 18px; opacity: 0.8; }
   .cursor-ring.hover { width: 52px; height: 52px; border-color: var(--cyan); }
 
-  /* Disable custom cursor */
-  .cursor,
-  .cursor-ring {
+
+
+  /* ── NORMAL CURSOR + NO TEXT SELECTION ── */
+  html, body, * {
+    cursor: default !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+
+  input, textarea, select {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+    cursor: text !important;
+  }
+
+  button, a, .btn-primary, .btn-secondary, .nav-cta, .social-link, .whatsapp-float {
+    cursor: pointer !important;
+  }
+
+  .cursor, .cursor-ring {
     display: none !important;
   }
 
@@ -179,7 +193,7 @@
   .hamburger {
     display: none;
     flex-direction: column; gap: 5px;
-    background: none; border: none; cursor: pointer; padding: 5px;
+    background: none; border: none; cursor: default; padding: 5px;
   }
   .hamburger span {
     display: block; width: 24px; height: 2px;
@@ -376,7 +390,7 @@
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 0 30px rgba(0,209,209,0.3);
-    border: none; cursor: pointer;
+    border: none; cursor: default;
   }
   .btn-primary:hover {
     transform: translateY(-3px);
@@ -393,7 +407,7 @@
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.1);
     transition: all 0.3s ease;
-    cursor: pointer;
+    cursor: default;
   }
   .btn-secondary:hover {
     background: rgba(0,209,209,0.08);
@@ -782,7 +796,7 @@
     border-radius: 10px;
     font-family: 'Readex Pro', sans-serif;
     font-size: 16px; font-weight: 700;
-    cursor: pointer;
+    cursor: default;
     transition: all 0.3s ease;
     box-shadow: 0 0 30px rgba(0,209,209,0.3);
   }
@@ -1648,32 +1662,6 @@
 </footer>
 
 <script>
-  // ── CURSOR ──
-  const cursor = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursorRing');
-  let mouseX = 0, mouseY = 0;
-  let ringX = 0, ringY = 0;
-
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
-  });
-
-  function animateRing() {
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
-    cursorRing.style.left = ringX + 'px';
-    cursorRing.style.top = ringY + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
-
-  document.querySelectorAll('a, button, .why-card, .service-card, .client-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); cursorRing.classList.add('hover'); });
-    el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); cursorRing.classList.remove('hover'); });
-  });
-
   // ── NAV SCROLL ──
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -1785,6 +1773,15 @@
       }, i * 80);
     });
   });
+
+
+  // Safety fallback: make visible content appear even if scroll animation fails
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => el.classList.add('visible'));
+    }, 250);
+  });
+
 </script>
 </body>
 </html>
