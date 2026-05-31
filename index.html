@@ -21,7 +21,14 @@
     --glow-blue: 0 0 40px rgba(45,127,249,0.18);
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
   html { scroll-behavior: smooth; }
 
@@ -32,7 +39,7 @@
     font-size: 16px;
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none;
+    cursor: default;
   }
 
   /* ── CUSTOM CURSOR ── */
@@ -59,6 +66,12 @@
   }
   .cursor.hover { width: 18px; height: 18px; opacity: 0.8; }
   .cursor-ring.hover { width: 52px; height: 52px; border-color: var(--cyan); }
+
+  /* Disable custom cursor */
+  .cursor,
+  .cursor-ring {
+    display: none !important;
+  }
 
   /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 4px; }
@@ -166,7 +179,7 @@
   .hamburger {
     display: none;
     flex-direction: column; gap: 5px;
-    background: none; border: none; cursor: none; padding: 5px;
+    background: none; border: none; cursor: pointer; padding: 5px;
   }
   .hamburger span {
     display: block; width: 24px; height: 2px;
@@ -363,7 +376,7 @@
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 0 30px rgba(0,209,209,0.3);
-    border: none; cursor: none;
+    border: none; cursor: pointer;
   }
   .btn-primary:hover {
     transform: translateY(-3px);
@@ -380,7 +393,7 @@
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.1);
     transition: all 0.3s ease;
-    cursor: none;
+    cursor: pointer;
   }
   .btn-secondary:hover {
     background: rgba(0,209,209,0.08);
@@ -769,7 +782,7 @@
     border-radius: 10px;
     font-family: 'Readex Pro', sans-serif;
     font-size: 16px; font-weight: 700;
-    cursor: none;
+    cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 0 30px rgba(0,209,209,0.3);
   }
@@ -1218,10 +1231,6 @@
 </style>
 </head>
 <body>
-
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/201233305201" class="whatsapp-float" target="_blank" title="WhatsApp Us">💬</a>
