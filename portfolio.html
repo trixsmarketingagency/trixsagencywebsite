@@ -26,6 +26,28 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Disable text/image selection and remove custom pointer styling */
+    html,
+    body,
+    *,
+    *::before,
+    *::after {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      cursor: default !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img,
+    svg,
+    video,
+    iframe {
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -85,9 +107,11 @@
     }
 
     .nav-logo img {
-      width: 78px;
+      width: 112px;
       height: auto;
       display: block;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     .nav-links {
@@ -224,7 +248,7 @@
       border-radius: 999px;
       padding: 12px 20px;
       white-space: nowrap;
-      cursor: pointer;
+      cursor: default !important;
       transition: .25s ease;
     }
 
@@ -315,7 +339,7 @@
     }
 
     .design-item img {
-      cursor: zoom-in;
+      cursor: default !important;
     }
 
     .design-item video {
@@ -422,7 +446,7 @@
       color: #fff;
       font-size: 26px;
       line-height: 1;
-      cursor: pointer;
+      cursor: default !important;
     }
 
     .lightbox-close:hover {
@@ -523,7 +547,7 @@
       }
 
       .nav-logo img {
-        width: 64px;
+        width: 92px;
       }
 
       .hero {
